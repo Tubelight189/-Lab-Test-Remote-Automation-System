@@ -171,6 +171,8 @@ project/
 
 ## 📊 Outputs
 
+* Raw dataset stored in compressed Parquet format for efficiency.  
+CSV version can be regenerated if needed.
 * ✅ Structured MySQL warehouse (Fact + Dimensions)
 * ✅ Parquet files (partitioned, optimized)
 * ✅ Analytical metrics (averages, trends)
@@ -245,4 +247,7 @@ This project demonstrates a **complete data engineering workflow with a visualiz
 
 ## 👨‍💻 Author
 
-**Arnav Adarsh**
+**Arnav Adarsh**  
+B.Tech Computer Science  
+🔗 GitHub: https://github.com/Tubelight189  
+🔗 LinkedIn: https://www.linkedin.com/in/arnav-adarsh-9004632aa/
