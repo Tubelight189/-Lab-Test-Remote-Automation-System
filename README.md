@@ -2,11 +2,11 @@
 
 ## 📌 Overview
 
-This project implements an **end-to-end data engineering pipeline** for processing and analyzing large-scale clinical lab data, along with an **interactive analytics dashboard** for real-time insights.
+This project implements an **end-to-end data engineering pipeline** for processing and analyzing large-scale clinical lab data, along with an **interactive analytics dashboard** for real-time insights. It handles ~1.4M+ records simulating real-world healthcare data scale.
 
 It simulates a real-world healthcare system where data is:
 
-> **Generated → Processed → Stored → Analyzed → Visualized**
+> **Generated → Ingested → Transformed → Stored → Analyzed → Visualized**
 
 ---
 
