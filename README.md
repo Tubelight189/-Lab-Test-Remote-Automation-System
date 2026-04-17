@@ -171,7 +171,7 @@ project/
 
 ## 📊 Outputs
 
-* Raw dataset stored in compressed Parquet format for efficiency.  
+* ✅ Raw dataset stored in compressed Parquet format for efficiency.  
 CSV version can be regenerated if needed.
 * ✅ Structured MySQL warehouse (Fact + Dimensions)
 * ✅ Parquet files (partitioned, optimized)
