@@ -14,7 +14,7 @@ cursor = conn.cursor()
 # Read CSV in chunks (IMPORTANT for large data)
 chunk_size = 100000
 
-for chunk in pd.read_csv("../data/processing/cleaned_lab_results.csv", chunksize=chunk_size):
+for chunk in pd.read_csv("/home/kiit/lab_automation/data/processing/cleaned_lab_results.csv", chunksize=chunk_size):
 
     for _, row in chunk.iterrows():
         cursor.execute("""

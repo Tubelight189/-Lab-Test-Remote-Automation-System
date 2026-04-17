@@ -8,7 +8,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Step 2: Load CSV Data
-df = spark.read.csv("../data/processing/cleaned_lab_results.csv", header=True, inferSchema=True)
+df = spark.read.csv("/home/kiit/lab_automation/data/processing/cleaned_lab_results.csv", header=True, inferSchema=True)
 
 # Step 3: Show Data
 df.show(5)
@@ -33,7 +33,7 @@ df.select("patient_id", "collection_date", "test_value", "avg_last_30_days").sho
 df.write \
     .partitionBy("collection_date") \
     .mode("overwrite") \
-    .parquet("../data/output/lab_results_parquet")
+    .parquet("/home/kiit/lab_automation/data/output/lab_results_parquet")
 
 # Step 9: Stop Spark (ALWAYS at end)
 spark.stop()

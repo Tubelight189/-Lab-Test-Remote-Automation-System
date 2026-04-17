@@ -2,7 +2,7 @@
 
 SOURCE_DIR="../data/landing"
 DEST_DIR="../data/processing"
-LOG_FILE="../logs/ingestion.log"
+LOG_FILE="/home/kiit/lab_automation/logs/ingestion.log"
 
 # Create log file if not exists
 touch $LOG_FILE

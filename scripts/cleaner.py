@@ -1,8 +1,7 @@
 import pandas as pd
 
 # Load data
-df = pd.read_csv("../data/processing/large_lab_results.csv")
-
+df = pd.read_csv("/home/kiit/lab_automation/data/processing/large_lab_results.csv")
 # ----------------------------
 # 1. Standardize Test Names
 # ----------------------------
@@ -43,6 +42,6 @@ df = df.dropna()
 # ----------------------------
 # 4. Save Clean Data
 # ----------------------------
-df.to_csv("../data/processing/cleaned_lab_results.csv", index=False)
+df.to_csv("/home/kiit/lab_automation/data/processing/cleaned_lab_results.csv", index=False)
 
 print("✅ Data cleaned and saved!")
