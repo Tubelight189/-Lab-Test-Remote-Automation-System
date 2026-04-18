@@ -188,12 +188,13 @@ This project uses a **synthetically generated clinical dataset** to simulate rea
   - `hospital_id`
   - `is_anomaly`
 
----
 
 ### ⚙️ Data Generation
 - Data is generated using a custom Python script:
   ```bash
   python scripts/data_generator.py
+
+---
 
 ## 📊 Outputs
 
