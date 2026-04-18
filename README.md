@@ -231,25 +231,88 @@ streamlit run dashboard/app.py
 
 ---
 
-## 🔍 Validation
+## 🔍 Validation & Testing
 
-### MySQL
+To ensure the integrity and reliability of the data pipeline, the following validation checks can be performed across different layers of the architecture.
+
+---
+
+## 🗄️ 1. MySQL Data Warehouse (Storage Layer)
+
+Verify that records are successfully loaded into the star schema and relationships are correctly maintained.
 
 ```sql
+-- Total records in Fact Table
 SELECT COUNT(*) FROM fact_lab_results;
+
+-- Anomaly count by test type
+SELECT t.test_name, COUNT(*) AS anomaly_count
+FROM fact_lab_results f
+JOIN dim_test t ON f.test_id = t.test_id
+WHERE f.is_anomaly = TRUE
+GROUP BY t.test_name
+ORDER BY anomaly_count DESC;
 ```
 
-### Parquet Output
+**✔️ Ensures:**
+- Data is properly loaded into the warehouse  
+- Foreign key relationships are valid  
+- Anomaly distribution across test types is logical  
 
-```text
-data/output/lab_results_parquet/
+---
+
+## ⚡ 2. PySpark Parquet Output (Big Data Layer)
+
+Validate that the Spark job correctly partitions and stores the data.
+
+```bash
+# View partitioned output structure
+ls -lh data/output/lab_results_parquet/ | head -n 10
 ```
 
-### Anomalies
+**✔️ Success Indicators:**
+- Presence of partitioned folders like `collection_date=YYYY-MM-DD/`  
+- Confirms efficient data lake design and query optimization  
 
-```text
-flagged_anomalies.csv
+---
+
+## 🚨 3. Anomaly Detection (Quality Assurance)
+
+Ensure abnormal records are correctly isolated for further analysis.
+
+```bash
+# Count total flagged anomalies
+wc -l data/output/flagged_anomalies.csv
+
+# Preview top anomaly records
+head -n 6 data/output/flagged_anomalies.csv
 ```
+
+**✔️ Ensures:**
+- Anomaly detection logic is working correctly  
+- Critical records are captured for review  
+
+---
+
+## 🔄 4. Airflow Orchestration (Automation Validation)
+
+Verify that the pipeline executed successfully without failures.
+
+**Steps:**
+1. Open Airflow UI: `http://localhost:8080`
+2. Select DAG: `lab_test_pipeline`
+3. Navigate to **Graph View**
+4. Confirm all tasks show **Success** (green):
+   - `generate_data`
+   - `clean_and_normalize`
+   - `load_to_warehouse`
+   - `process_analytics`
+   - `flag_anomalies`
+
+**✔️ Ensures:**
+- End-to-end pipeline execution is successful  
+- No task failures or retries  
+- Workflow automation is reliable  
 
 ---
 
