@@ -1,10 +1,12 @@
-# 🏥 Lab Test Data Engineering Pipeline & Analytics Dashboard
+# 🏥 LabFlow Analytics: Clinical Data Engineering Pipeline & Dashboard
 
 ## 📌 Overview
 
-This project implements an **end-to-end data engineering pipeline** for processing and analyzing large-scale clinical lab data, along with an **interactive analytics dashboard** for real-time insights. It handles ~1.4M+ records simulating real-world healthcare data scale.
+**LabFlow Analytics** is an end-to-end data engineering pipeline designed to process and analyze large-scale clinical lab data, along with an interactive analytics dashboard for real-time insights.
 
-It simulates a real-world healthcare system where data is:
+It handles **~1.4M+ records**, simulating real-world healthcare data at scale.
+
+The system follows a complete pipeline:
 
 > **Generated → Ingested → Transformed → Stored → Analyzed → Visualized**
 
@@ -19,6 +21,7 @@ It simulates a real-world healthcare system where data is:
 * 🧹 Data cleaning & normalization
 * 🚨 Anomaly detection system
 * 📈 Interactive dashboard using **Streamlit + Plotly**
+* 🧠 Designed as a production-style modular data pipeline
 
 ---
 
@@ -60,7 +63,7 @@ Airflow DAG (Automation)
 
 ---
 
-## 📊 Dashboard
+## 📊 LabFlow Analytics Dashboard
 
 An interactive dashboard built using **Streamlit + Plotly** to monitor pipeline output and analyze lab results.
 
@@ -79,8 +82,8 @@ An interactive dashboard built using **Streamlit + Plotly** to monitor pipeline 
 
 * 📈 **Visualization**
 
-  * Time-series scatter plot
-  * Anomalies highlighted in real-time
+  * Time-series scatter plot of lab values
+  * Real-time anomaly highlighting
 
 * 📋 **Data Table**
 
@@ -115,8 +118,8 @@ An interactive dashboard built using **Streamlit + Plotly** to monitor pipeline 
 ### 🔹 Phase 4: Orchestration & Automation
 
 * Built **Airflow DAG (`lab_test_pipeline`)**
-* Automated entire workflow
-* Implemented anomaly detection
+* Automated the entire workflow
+* Integrated anomaly detection
 
 ---
 
@@ -169,14 +172,39 @@ project/
 
 ---
 
+## 🧪 Dataset & Data Simulation
+
+This project uses a **synthetically generated clinical dataset** to simulate real-world healthcare data at scale.
+
+### 📊 Dataset Characteristics
+- 📦 Size: ~1.4M+ records  
+- 🧍 Entities: Patients, Tests, Hospitals  
+- 🧾 Fields include:
+  - `patient_id`
+  - `test_name` (HbA1c, Glucose, Cholesterol, etc.)
+  - `test_value`
+  - `collection_date`
+  - `reference_range`
+  - `hospital_id`
+  - `is_anomaly`
+
+---
+
+### ⚙️ Data Generation
+- Data is generated using a custom Python script:
+  ```bash
+  python scripts/data_generator.py
+
 ## 📊 Outputs
 
-* ✅ Raw dataset stored in compressed Parquet format for efficiency. CSV version can be regenerated if needed.
 * ✅ Structured MySQL warehouse (Fact + Dimensions)
 * ✅ Parquet files (partitioned, optimized)
 * ✅ Analytical metrics (averages, trends)
 * ✅ `flagged_anomalies.csv`
 * ✅ Live dashboard for visualization
+
+> 📌 Note: Full dataset (~1.4M records) is not included in the repository.
+> A sample dataset or data generation script is provided for reproducibility.
 
 ---
 
@@ -236,7 +264,7 @@ flagged_anomalies.csv
 
 ## 🎯 Conclusion
 
-This project demonstrates a **complete data engineering workflow with a visualization layer**, transforming raw healthcare data into actionable insights through:
+**LabFlow Analytics** demonstrates a complete data engineering workflow with a visualization layer, transforming raw healthcare data into actionable insights through:
 
 * Automation
 * Scalability
@@ -246,7 +274,7 @@ This project demonstrates a **complete data engineering workflow with a visualiz
 
 ## 👨‍💻 Author
 
-**Arnav Adarsh**  
+**Arnav Adarsh**
 B.Tech Computer Science  
 🔗 GitHub: https://github.com/Tubelight189  
 🔗 LinkedIn: https://www.linkedin.com/in/arnav-adarsh-9004632aa/
